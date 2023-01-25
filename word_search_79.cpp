@@ -1,3 +1,24 @@
+        // // Prune #1: If there aren't even enough letters in the board to fit word, then return false
+        // if((int) word.size() > R * C) {return false;}
+        
+        // // Prune #2: For each letter, the board must contain at least as many of that letter as word contains
+        // int occ[128] = {};
+        // for(const auto &v : board) {for(char c : v) {++occ[c];}}
+        // for(char c : word) {
+        //     if(--occ[c] < 0) {return false;}
+        // }
+        
+        // Prune #3: Find the longest prefix/suffix of the same character. If the longest suffix is longer
+        // than the longest prefix, swap the strigns (so we are less likely to have a long prefix with a lot
+        // of the same character)
+        // int left_pref = word.find_first_not_of(word[0]);
+        // int right_pref = word.size() - word.find_last_not_of(word.back());
+        // if(left_pref > right_pref) {
+        //     reverse(word.begin(), word.end());
+        // }
+
+
+
 class Solution {
 public:
     bool exist(vector<vector<char>>& board, string word) {
